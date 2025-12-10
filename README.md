@@ -106,13 +106,13 @@ MiniCLIP learns a joint embedding space for images and text captions using contr
 
 #### Embedding Space Analysis
 ![Embedding Space LSTM](results/embedding_space_lstm.png)
-
+![Embedding Space LSTM](results/embedding_space_transformer.png)
 #### Similarity Matrix
 ![Similarity Heatmap](results/similarity_heatmap_lstm.png)
-
+![Similarity Heatmap](results/similarity_heatmap_transformer.png)
 #### Retrieval Examples
 ![Retrieval Results](results/retrieval_results_lstm.png)
-
+![Retrieval Results](results/retrieval_results_transformer.png)
 ## 🚀 Setup Instructions
 
 ### Prerequisites
