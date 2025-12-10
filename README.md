@@ -25,8 +25,6 @@ A PyTorch implementation of CLIP-style contrastive learning for image-text retri
 - [Technical Details](#technical-details)
 - [Challenges & Future Work](#challenges--future-work)
 - [Acknowledgments](#acknowledgments)
-- [References](#references)
-
 ---
 
 ## Project Overview
@@ -462,10 +460,6 @@ The code automatically detects and uses the best available device:
 
 ## Acknowledgments
 
-### Academic
-- **Course**: EE P 596 - Practical Introduction to Deep Learning Applications and Theory, University of Washington
-- **Instructor**: Thank you to the course staff for guidance on contrastive learning and transformer architectures
-
 ### Papers & Research
 
 This project is inspired by and builds upon the following research:
@@ -498,52 +492,4 @@ This project is inspired by and builds upon the following research:
   - Images collected from personal everyday scenes
   - Captions written by the author (2 captions per image)
 
-### Tools
-- [Mermaid](https://mermaid.js.org/) - Architecture diagram generation
-- [Google Drive](https://drive.google.com/) - Model weight hosting
 
----
-
-## References
-
-```bibtex
-@inproceedings{radford2021learning,
-  title={Learning Transferable Visual Models From Natural Language Supervision},
-  author={Radford, Alec and Kim, Jong Wook and Hallacy, Chris and others},
-  booktitle={International Conference on Machine Learning (ICML)},
-  year={2021}
-}
-```
-@inproceedings{vaswani2017attention,
-  title={Attention Is All You Need},
-  author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and others},
-  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
-  year={2017}
-}
-
-@inproceedings{he2016deep,
-  title={Deep Residual Learning for Image Recognition},
-  author={He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
-  booktitle={IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2016}
-}
-
-@article{hochreiter1997long,
-  title={Long Short-Term Memory},
-  author={Hochreiter, Sepp and Schmidhuber, J{\"u}rgen},
-  journal={Neural Computation},
-  volume={9},
-  number={8},
-  pages={1735--1780},
-  year={1997}
-}
-
-@inproceedings{chen2020simple,
-  title={A Simple Framework for Contrastive Learning of Visual Representations},
-  author={Chen, Ting and Kornblith, Simon and Norouzi, Mohammad and Hinton, Geoffrey},
-  booktitle={International Conference on Machine Learning (ICML)},
-  year={2020}
-}
-```
-
----
