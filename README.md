@@ -484,7 +484,7 @@ This project is inspired by and builds upon the following research:
 | [scikit-learn](https://scikit-learn.org/) | ≥1.0.0 | PCA for embedding visualization | BSD-3-Clause |
 
 ### Pretrained Models
-- **ResNet-18**: Pretrained on [ImageNet-1K](https://www.image-net.org/) (1.2M images, 1000 classes)
+- **[ResNet-18](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.resnet18.html)**: Pretrained on [ImageNet-1K](https://www.image-net.org/) (1.2M images, 1000 classes)
   - Weights: `torchvision.models.ResNet18_Weights.DEFAULT`
 
 ### Dataset
