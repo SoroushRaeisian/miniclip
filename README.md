@@ -125,11 +125,11 @@ pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 
 Download the model weights from the link below and place them in the `checkpoints/` directory:
 
-📥 **[Download Pre-trained Models (Google Drive)](https://drive.google.com/drive/folders/YOUR_FOLDER_ID)**
+📥 **[Download Pre-trained Models (Google Drive)](https://drive.google.com/drive/folders/1yLb_3cQ5vGcfsbCwhPTvmY2QOovYccp_?usp=drive_link)**
 
 Or use these direct links:
-- [best_model_lstm.pth](https://drive.google.com/file/d/LSTM_FILE_ID)
-- [best_model_transformer.pth](https://drive.google.com/file/d/TRANSFORMER_FILE_ID)
+- [best_model_lstm.pth](https://drive.google.com/file/d/1pxew-fhfUTFmkRXljLJlE2Pf2pnmaPhP/view?usp=drive_link)
+- [best_model_transformer.pth](https://drive.google.com/file/d/17ExPU9v9nbk95UAr4Hnu7PlKMpaAMbFB/view?usp=drive_link)
 
 5. **Prepare your data**
 
