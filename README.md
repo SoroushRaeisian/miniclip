@@ -36,7 +36,7 @@ MiniCLIP learns a joint embedding space for images and text captions using contr
 
 **Note**: Same image never appears in both train and test → prevents data leakage
 
-## 🏗️ Model Architecture
+## Model Architecture
 
 ### Image Encoder
 - **Backbone**: ResNet-18 with pretrained ImageNet weights
@@ -63,7 +63,9 @@ MiniCLIP learns a joint embedding space for images and text captions using contr
 - Symmetric loss: image-to-text + text-to-image
 - Learnable temperature τ (initialized at 0.07)
 
-## 📈 Results
+![Model Architecture](src/miniclip_model.png)
+
+## Results
 
 ### Test Set Performance
 
