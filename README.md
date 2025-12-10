@@ -1,9 +1,9 @@
-# MiniCLIP: Text-Image Retrieval for Everyday Photos
+**MiniCLIP: Text-Image Retrieval for Everyday Photos**
 
 **Author**: Soroush Raeisian  
 **Course**: EE P 596 Au 25: Practical introduction to Deep Learning Applications and Theory 
 **Date**: autumn 2025
-
+#
 A PyTorch implementation of CLIP-style contrastive learning for image-text retrieval on personal photo collections. This project implements a simplified version of CLIP model, enabling natural language search over image datasets.
 
 ## Project Overview
