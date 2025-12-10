@@ -89,7 +89,7 @@ The LSTM encoder achieves **12.5x improvement** over random baseline on R@1!
 ![Transformer Training](results/training_curves_transformer.png)
 
 ### Model Comparison
-![Metrics Comparison](results/metrics_comparison.png)
+![Metrics Comparison](results/model_comparison.png)
 
 ## 🚀 Setup Instructions
 
