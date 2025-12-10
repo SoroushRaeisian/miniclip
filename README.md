@@ -107,15 +107,15 @@ MiniCLIP learns a joint embedding space for images and text captions using contr
 
 | Model | R@1 | R@5 | R@10 | MRR | MedR |
 |-------|-----|-----|------|-----|------|
-| **BiLSTM** | **37.50%** | **79.69%** | **89.06%** | **0.547** | **2.0** |
+| **BiLSTM** | **40.62%** | **73.44%** | **87.50%** | **0.558** | **2.0** |
 | Transformer | 21.88% | 53.12% | 70.31% | 0.368 | 5.0 |
 | BoW Baseline | 9.38% | 20.31% | 26.56% | 0.162 | - |
 | Random Baseline | 3.12% | 15.62% | 31.25% | 0.127 | - |
 
 ### Key Findings
-- **BiLSTM achieves 12× improvement over random baseline**
-- BiLSTM beats Transformer (37.5% vs 21.9% R@1)
-- Large gap at R@5: 79.7% vs 53.1%
+- **BiLSTM achieves 13× improvement over random baseline**
+- BiLSTM beats Transformer (40.6% vs 21.9% R@1)
+- Large gap at R@5: 73.4% vs 53.1%
 - MedR=2 means correct image usually in top 2!
 
 ### Metrics Explained
@@ -422,13 +422,13 @@ Epoch   2/50 | Loss: 3.3619 | Val R@1: 11.29% | LR: 1.20e-04
 TEST EVALUATION
 ============================================================
 Test Results (LSTM):
-  R@1:  37.50%
-  R@5:  79.69%
-  R@10: 89.06%
-  MRR:  0.5469
+  R@1:  40.62%
+  R@5:  73.44%
+  R@10: 87.50%
+  MRR:  0.5577
   MedR: 2.0
 
-🎯 12.0x improvement over random!
+🎯 13.0x improvement over random!
 ```
 
 ---
@@ -439,7 +439,7 @@ Test Results (LSTM):
 
 | Model | File | Size | Val R@1 | Test R@1 |
 |-------|------|------|---------|----------|
-| BiLSTM | `best_model_lstm.pth` | ~54 MB | 25.8% | 37.5% |
+| BiLSTM | `best_model_lstm.pth` | ~54 MB | 27.4% | 40.6% |
 | Transformer | `best_model_transformer.pth` | ~46 MB | 22.6% | 21.9% |
 
 Place downloaded files in the `checkpoints/` directory.
@@ -518,7 +518,7 @@ All hyperparameters are defined in `src/config.py`:
 ### Training Results Summary
 | Model | Best Epoch | Final Loss | Best Val R@1 |
 |-------|------------|------------|--------------|
-| BiLSTM | 16 | 0.53 | 25.8% |
+| BiLSTM | 26 | 0.54 | 27.4% |
 | Transformer | 15 | 1.19 | 22.6% |
 
 ### Device Support
@@ -526,6 +526,10 @@ The code automatically detects and uses the best available device:
 1. **CUDA** (NVIDIA GPU) - fastest
 2. **MPS** (Apple Silicon) - good performance
 3. **CPU** - slowest but always available
+
+### Embedding Space Visualization
+- **CUDA/CPU**: Uses t-SNE for better cluster separation
+- **MPS (Apple Silicon)**: Uses PCA (t-SNE has compatibility issues on MPS)
 
 ---
 
@@ -567,7 +571,7 @@ This project is inspired by and builds upon the following research:
 | [NumPy](https://numpy.org/) | ≥1.21.0 | Numerical computations | BSD-3-Clause |
 | [Pillow](https://pillow.readthedocs.io/) | ≥8.0.0 | Image loading and processing | HPND |
 | [Matplotlib](https://matplotlib.org/) | ≥3.5.0 | Visualization and plotting | PSF |
-| [scikit-learn](https://scikit-learn.org/) | ≥1.0.0 | PCA for embedding visualization | BSD-3-Clause |
+| [scikit-learn](https://scikit-learn.org/) | ≥1.0.0 | t-SNE/PCA for embedding visualization | BSD-3-Clause |
 
 ### Pretrained Models
 - **[ResNet-18](https://docs.pytorch.org/vision/main/models/generated/torchvision.models.resnet18.html)**: Pretrained on [ImageNet-1K](https://www.image-net.org/) (1.2M images, 1000 classes)
