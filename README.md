@@ -250,17 +250,26 @@ Place images in `data/images/` and create `data/captions.json`:
 
 ### Run the Demo (Quickest Way)
 
-**Interactive Mode** - type your own queries:
+Simply run:
 ```bash
 cd demo
-python demo.py --model_type lstm
+python demo.py
 ```
 
-**Batch Mode** - run predefined queries:
-```bash
-cd demo
-python demo.py --model_type lstm --batch
-```
+The demo provides an interactive menu:
+
+1. **Select Model**: Choose between LSTM (recommended) or Transformer
+2. **Select Mode**: Choose between Automatic or Interactive
+
+#### Automatic Mode
+- Randomly selects 5 captions from your dataset
+- Runs retrieval on each query
+- Saves results to `results/demo_results_{model}.png` and `.json`
+
+#### Interactive Mode
+- Type your own queries
+- Results saved to `results/query_{n}_{query}_{model}.png`
+- Type `quit` to exit
 
 ### Train a Model from Scratch
 
@@ -287,28 +296,100 @@ python main.py --model_type transformer
 
 ### Demo Output
 
-When running the interactive demo, you should see:
+When running the demo, you will see a menu-driven interface:
 
 ```
 ============================================================
-MiniCLIP Interactive Demo
-============================================================
-Device: mps
-Model: lstm
-Loaded 210 images
+       MiniCLIP Demo - Text-to-Image Retrieval
+         EE P 596 Deep Learning Final Project
 ============================================================
 
-Enter query (or 'quit' to exit): christmas tree
+  Device: mps
 
-🔍 Query: christmas tree
-📸 Top 5 results:
-   1. image_4.jpg (score: 0.425)
-   2. image_5.jpg (score: 0.365)
-   3. image_6.jpg (score: 0.287)
-   4. image_12.jpg (score: 0.234)
-   5. image_8.jpg (score: 0.198)
+----------------------------------------
+  SELECT MODEL
+----------------------------------------
+  1. LSTM (Recommended - Better accuracy)
+  2. Transformer
+----------------------------------------
+  Enter choice [1/2]: 1
 
-[Visualization window opens showing retrieved images]
+----------------------------------------
+  SELECT MODE
+----------------------------------------
+  1. Automatic (5 random captions from dataset)
+  2. Interactive (Type your own queries)
+----------------------------------------
+  Enter choice [1/2]: 1
+
+----------------------------------------
+  LOADING...
+----------------------------------------
+  ✓ Loaded 420 captions
+  Loading LSTM model...
+  ✓ Loaded from epoch 16, Val R@1: 25.81%
+  Building image index (210 images)...
+  ✓ Indexed 210 images
+
+============================================================
+  AUTOMATIC MODE - 5 Random Captions
+============================================================
+
+  Selected queries:
+    1. "closed ladder"
+    2. "Christmas tree"
+    3. "watch"
+    4. "candy cane"
+    5. "milo dog"
+
+------------------------------------------------------------
+  RESULTS
+------------------------------------------------------------
+
+  🔍 Query: "closed ladder"
+     ✓ 1. image_203.jpg (score: 0.631)
+       2. image_48.jpg (score: 0.544)
+       3. image_47.jpg (score: 0.536)
+       4. image_92.jpg (score: 0.534)
+       5. image_46.jpg (score: 0.356)
+
+  🔍 Query: "Christmas tree"
+     ✓ 1. image_33.jpg (score: 0.611)
+       2. image_46.jpg (score: 0.589)
+       3. image_34.jpg (score: 0.579)
+       ...
+
+============================================================
+  DEMO COMPLETE!
+============================================================
+
+  📊 Results saved to:
+     • ../results/demo_results_lstm.png
+     • ../results/demo_results_lstm.json
+```
+
+### Interactive Mode Output
+
+```
+============================================================
+  INTERACTIVE MODE
+  Type a query to search, or 'quit' to exit
+============================================================
+
+  🔍 Enter query: dog
+
+  📸 Top 5 results:
+     ✓ 1. image_69.jpg (score: 0.575)
+       2. image_85.jpg (score: 0.569)
+       3. image_31.jpg (score: 0.567)
+       4. image_32.jpg (score: 0.542)
+       5. image_11.jpg (score: 0.387)
+
+     💾 Saved: ../results/query_1_dog_lstm.png
+
+  🔍 Enter query: quit
+
+  Goodbye!
 ```
 
 ### Training Output
@@ -377,7 +458,7 @@ miniclip/
 │   ├── utils.py             # Utilities (tokenizer, dataset, metrics)
 │   └── main.py              # Training script entry point
 ├── demo/
-│   └── demo.py              # Interactive demo script
+│   └── demo.py              # Menu-driven demo script
 ├── data/
 │   ├── images/              # Image files (~210 photos)
 │   ├── captions.json        # Image captions (420 entries)
@@ -396,7 +477,12 @@ miniclip/
     ├── retrieval_results_transformer.png
     ├── model_comparison.png
     ├── metrics_lstm.json
-    └── metrics_transformer.json
+    ├── metrics_transformer.json
+    ├── demo_results_lstm.png        # Demo output (automatic mode)
+    ├── demo_results_lstm.json       # Demo output (automatic mode)
+    ├── demo_results_transformer.png # Demo output (automatic mode)
+    ├── demo_results_transformer.json# Demo output (automatic mode)
+    └── query_*_{model}.png          # Demo output (interactive mode)
 ```
 
 ---
