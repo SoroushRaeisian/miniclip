@@ -161,9 +161,9 @@ MiniCLIP learns a joint embedding space for images and text captions using contr
 ### Prerequisites
 
 - **Python**: 3.8 or higher (tested on 3.10, 3.11, 3.13)
-- **Hardware**: 
-  - NVIDIA GPU with CUDA support, OR
-  - Apple Silicon Mac (M1/M2/M3) with MPS, OR
+- **Hardware, any one of the options below would work**: 
+  - NVIDIA GPU with CUDA support
+  - Apple Silicon Mac with MPS
   - CPU (slower, but works)
 - **RAM**: 8GB minimum, 16GB recommended
 - **Disk**: ~2GB for packages and model weights
@@ -438,7 +438,7 @@ All hyperparameters are defined in `src/config.py`:
 ### Device Support
 The code automatically detects and uses the best available device:
 1. **CUDA** (NVIDIA GPU) - fastest
-2. **MPS** (Apple Silicon M1/M2/M3) - good performance
+2. **MPS** (Apple Silicon) - good performance
 3. **CPU** - slowest but always available
 
 ---
