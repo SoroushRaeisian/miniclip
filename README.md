@@ -34,7 +34,7 @@ MiniCLIP learns a joint embedding space for images and text captions using contr
 - **Validation**: 15% (31 images, 62 captions)
 - **Test**: 15% (32 images, 64 captions)
 
-> **Important**: Same image never appears in both train and test → prevents data leakage
+**Note**: Same image never appears in both train and test → prevents data leakage
 
 ## 🏗️ Model Architecture
 
