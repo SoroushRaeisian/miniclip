@@ -1,0 +1,17 @@
+# MiniCLIP Requirements
+# =====================
+# Python >= 3.8 recommended
+
+# Core Deep Learning
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Data Processing & Visualization
+numpy>=1.21.0
+Pillow>=9.0.0
+matplotlib>=3.5.0
+
+# Optional: For CUDA support, install the appropriate PyTorch version:
+# pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+# Or for Apple Silicon (MPS):
+# pip install torch torchvision

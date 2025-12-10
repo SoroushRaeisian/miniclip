@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Big model weights – keep them locally, but don't push to GitHub
+checkpoints/*.pth
+
+# Raw personal images – keep data local
+data/images/*
+!data/images/.gitkeep
