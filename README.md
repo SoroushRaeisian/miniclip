@@ -2,6 +2,7 @@
 
 **Author**: Soroush Raeisian  
 **Course**: University of Washington, EE P 596 Au 25: Practical Introduction to Deep Learning Applications and Theory 
+
 **Date**: Autumn 2025
 
 ---
