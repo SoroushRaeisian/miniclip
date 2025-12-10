@@ -331,10 +331,10 @@ Loaded 420 captions
 [Tokenizer] Built vocabulary with 194 tokens
 
   Loading LSTM model...
-  ✓ Loaded from epoch 26, Val R@1: 27.42%
+    Loaded from epoch 26, Val R@1: 27.42%
 
   Building image index (210 images)...
-  ✓ Indexed 210 images
+    Indexed 210 images
 
 ============================================================
   AUTOMATIC MODE - 5 Random Captions
@@ -352,35 +352,35 @@ Loaded 420 captions
 ------------------------------------------------------------
 
 Query: "hand on side table"
-     ✓ 1. image_15.jpg (score: 0.703)
+       1. image_15.jpg (score: 0.703)
        2. image_13.jpg (score: 0.621)
        3. image_16.jpg (score: 0.592)
        4. image_12.jpg (score: 0.572)
        5. image_51.jpg (score: 0.398)
 
 Query: "tv"
-     ✓ 1. image_116.jpg (score: 0.693)
+       1. image_116.jpg (score: 0.693)
        2. image_96.jpg (score: 0.573)
        3. image_71.jpg (score: 0.249)
        4. image_114.jpg (score: 0.223)
        5. image_73.jpg (score: 0.203)
 
 Query: "santa side table"
-     ✓ 1. image_94.jpg (score: 0.573)
+       1. image_94.jpg (score: 0.573)
        2. image_60.jpg (score: 0.560)
        3. image_51.jpg (score: 0.525)
        4. image_17.jpg (score: 0.518)
        5. image_105.jpg (score: 0.423)
 
 Query: "ginger bread house"
-     ✓ 1. image_38.jpg (score: 0.679)
+       1. image_38.jpg (score: 0.679)
        2. image_37.jpg (score: 0.634)
        3. image_44.jpg (score: 0.540)
        4. image_13.jpg (score: 0.343)
        5. image_22.jpg (score: 0.323)
 
 Query: "espresso machine"
-     ✓ 1. image_39.jpg (score: 0.711)
+       1. image_39.jpg (score: 0.711)
        2. image_19.jpg (score: 0.574)
        3. image_40.jpg (score: 0.479)
        4. image_24.jpg (score: 0.454)
@@ -393,7 +393,8 @@ Query: "espresso machine"
 Results saved to:
      • ../results/demo_results_lstm.png
      • ../results/demo_results_lstm.json
-
+```
+``` bash
 demo % python demo.py
 
 ============================================================
@@ -428,10 +429,10 @@ Loaded 420 captions
   Loading TRANSFORMER model...
 /opt/anaconda3/lib/python3.13/site-packages/torch/nn/modules/transformer.py:392: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
   warnings.warn(
-  ✓ Loaded from epoch 8, Val R@1: 20.97%
+    Loaded from epoch 8, Val R@1: 20.97%
 
   Building image index (210 images)...
-  ✓ Indexed 210 images
+    Indexed 210 images
 
 ============================================================
   AUTOMATIC MODE - 5 Random Captions
@@ -449,35 +450,35 @@ Loaded 420 captions
 ------------------------------------------------------------
 
 Query: "unscented dog wipes"
-     ✓ 1. image_198.jpg (score: 0.088)
+       1. image_198.jpg (score: 0.088)
        2. image_111.jpg (score: 0.084)
        3. image_103.jpg (score: 0.077)
        4. image_3.jpg (score: 0.071)
        5. image_126.jpg (score: 0.071)
 
 Query: "thermostat"
-     ✓ 1. image_91.jpg (score: 0.178)
+       1. image_91.jpg (score: 0.178)
        2. image_110.jpg (score: 0.168)
        3. image_143.jpg (score: 0.164)
        4. image_5.jpg (score: 0.163)
        5. image_7.jpg (score: 0.147)
 
 Query: "white vases"
-     ✓ 1. image_111.jpg (score: 0.172)
+       1. image_111.jpg (score: 0.172)
        2. image_136.jpg (score: 0.137)
        3. image_153.jpg (score: 0.137)
        4. image_112.jpg (score: 0.116)
        5. image_20.jpg (score: 0.112)
 
 Query: "starbucks cup"
-     ✓ 1. image_163.jpg (score: 0.180)
+       1. image_163.jpg (score: 0.180)
        2. image_53.jpg (score: 0.173)
        3. image_149.jpg (score: 0.165)
        4. image_147.jpg (score: 0.155)
        5. image_162.jpg (score: 0.153)
 
 Query: "side table"
-     ✓ 1. image_163.jpg (score: 0.207)
+       1. image_163.jpg (score: 0.207)
        2. image_53.jpg (score: 0.202)
        3. image_14.jpg (score: 0.201)
        4. image_165.jpg (score: 0.198)
@@ -490,9 +491,6 @@ Query: "side table"
 Results saved to:
      • ../results/demo_results_transformer.png
      • ../results/demo_results_transformer.json
-
-
-
 
 ```
 
@@ -531,10 +529,10 @@ Loaded 420 captions
 [Tokenizer] Built vocabulary with 194 tokens
 
   Loading LSTM model...
-  ✓ Loaded from epoch 26, Val R@1: 27.42%
+    Loaded from epoch 26, Val R@1: 27.42%
 
   Building image index (210 images)...
-  ✓ Indexed 210 images
+    Indexed 210 images
 
 ============================================================
   INTERACTIVE MODE
@@ -544,7 +542,7 @@ Loaded 420 captions
 Enter query: tree
 
 Top 5 results:
-     ✓ 1. image_55.jpg (score: 0.658)
+       1. image_55.jpg (score: 0.658)
        2. image_107.jpg (score: 0.604)
        3. image_9.jpg (score: 0.427)
        4. image_8.jpg (score: 0.413)
@@ -555,7 +553,7 @@ Saved: ../results/query_1_tree_lstm.png
 Enter query: dog
 
 Top 5 results:
-     ✓ 1. image_32.jpg (score: 0.623)
+       1. image_32.jpg (score: 0.623)
        2. image_31.jpg (score: 0.602)
        3. image_85.jpg (score: 0.439)
        4. image_69.jpg (score: 0.428)
@@ -566,7 +564,7 @@ Saved: ../results/query_2_dog_lstm.png
 Enter query: candle
 
 Top 5 results:
-     ✓ 1. image_61.jpg (score: 0.603)
+       1. image_61.jpg (score: 0.603)
        2. image_113.jpg (score: 0.559)
        3. image_59.jpg (score: 0.559)
        4. image_179.jpg (score: 0.535)
@@ -575,8 +573,8 @@ Top 5 results:
 Saved: ../results/query_3_candle_lstm.png
 
 Enter query: exit
-
-
+```
+``` bash
 python demo.py
 
 ============================================================
@@ -611,10 +609,10 @@ Loaded 420 captions
   Loading TRANSFORMER model...
 /opt/anaconda3/lib/python3.13/site-packages/torch/nn/modules/transformer.py:392: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
   warnings.warn(
-  ✓ Loaded from epoch 8, Val R@1: 20.97%
+    Loaded from epoch 8, Val R@1: 20.97%
 
   Building image index (210 images)...
-  ✓ Indexed 210 images
+    Indexed 210 images
 
 ============================================================
   INTERACTIVE MODE
@@ -624,7 +622,7 @@ Loaded 420 captions
 Enter query: brown dog
 
 Top 5 results:
-     ✓ 1. image_69.jpg (score: 0.110)
+       1. image_69.jpg (score: 0.110)
        2. image_4.jpg (score: 0.106)
        3. image_116.jpg (score: 0.101)
        4. image_106.jpg (score: 0.095)
@@ -635,7 +633,7 @@ Saved: ../results/query_1_brown_dog_transformer.png
 Enter query: christmas tree
 
 Top 5 results:
-     ✓ 1. image_56.jpg (score: 0.229)
+       1. image_56.jpg (score: 0.229)
        2. image_5.jpg (score: 0.225)
        3. image_4.jpg (score: 0.219)
        4. image_91.jpg (score: 0.191)
@@ -646,7 +644,7 @@ Saved: ../results/query_2_christmas_tree_transformer.png
 Enter query: pen
 
 Top 5 results:
-     ✓ 1. image_53.jpg (score: 0.184)
+       1. image_53.jpg (score: 0.184)
        2. image_81.jpg (score: 0.127)
        3. image_82.jpg (score: 0.126)
        4. image_85.jpg (score: 0.124)
