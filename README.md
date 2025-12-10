@@ -26,7 +26,6 @@ A PyTorch implementation of CLIP-style contrastive learning for image-text retri
 - [Challenges & Future Work](#challenges--future-work)
 - [Acknowledgments](#acknowledgments)
 - [References](#references)
-- [License](#license)
 
 ---
 
@@ -514,7 +513,7 @@ This project is inspired by and builds upon the following research:
   booktitle={International Conference on Machine Learning (ICML)},
   year={2021}
 }
-
+```
 @inproceedings{vaswani2017attention,
   title={Attention Is All You Need},
   author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and others},
@@ -548,12 +547,3 @@ This project is inspired by and builds upon the following research:
 ```
 
 ---
-
-## License
-
-This project is for educational purposes as part of the EE P 596 Deep Learning course at the University of Washington.
-
----
-
-**Author**: Soroush Raeisian  
-**Last Updated**: Autumn 2025
