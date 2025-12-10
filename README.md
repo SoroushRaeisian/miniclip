@@ -65,7 +65,7 @@ MiniCLIP learns a joint embedding space for images and text captions using contr
 - Symmetric loss: image-to-text + text-to-image
 - Learnable temperature τ (initialized at 0.07)
 
-![Model Architecture](src/miniclip_architecture.png)
+![Model Architecture](data/miniclip_arch_model.png)
 
 ## Results
 
