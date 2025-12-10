@@ -1,7 +1,7 @@
 # MiniCLIP: Text-Image Retrieval for Everyday Photos
 
 **Author**: Soroush Raeisian  
-**Course**: EE P 596 Au 25: Practical Introduction to Deep Learning Applications and Theory  
+**Course**: University of Washington, EE P 596 Au 25: Practical Introduction to Deep Learning Applications and Theory 
 **Date**: Autumn 2025
 
 ---
