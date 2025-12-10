@@ -397,7 +397,7 @@ When running the demo, you will see a menu-driven interface:
 When training a model, you should see:
 
 ``` bash
-(base) soroushraeisian@Soroushs-MacBook-Air src % python main.py --model_type lstm
+python main.py --model_type lstm
 ============================================================
 MiniCLIP: Text-Image Retrieval
 ============================================================
@@ -435,31 +435,43 @@ Epoch   4/50 | Loss: 2.5805 | Val R@1: 16.13% | LR: 2.40e-04 | Temp: 14.28
 Epoch   5/50 | Loss: 2.0420 | Val R@1: 17.74% | LR: 3.00e-04 | Temp: 14.32
 Epoch   6/50 | Loss: 1.7659 | Val R@1: 19.35% | LR: 3.00e-04 | Temp: 14.37
 Epoch   7/50 | Loss: 1.3040 | Val R@1: 17.74% | LR: 2.99e-04 | Temp: 14.42
-Epoch   8/50 | Loss: 1.1335 | Val R@1: 19.35% | LR: 2.97e-04 | Temp: 14.47
-Epoch   9/50 | Loss: 0.9992 | Val R@1: 20.97% | LR: 2.94e-04 | Temp: 14.52
+Epoch   8/50 | Loss: 1.1336 | Val R@1: 19.35% | LR: 2.97e-04 | Temp: 14.47
+Epoch   9/50 | Loss: 0.9998 | Val R@1: 20.97% | LR: 2.94e-04 | Temp: 14.52
   → Saved best model (R@1: 20.97%)
-Epoch  10/50 | Loss: 0.8706 | Val R@1: 20.97% | LR: 2.91e-04 | Temp: 14.56
-Epoch  11/50 | Loss: 0.8682 | Val R@1: 24.19% | LR: 2.87e-04 | Temp: 14.60
+Epoch  10/50 | Loss: 0.8709 | Val R@1: 22.58% | LR: 2.91e-04 | Temp: 14.56
+  → Saved best model (R@1: 22.58%)
+Epoch  11/50 | Loss: 0.8684 | Val R@1: 24.19% | LR: 2.87e-04 | Temp: 14.61
   → Saved best model (R@1: 24.19%)
-Epoch  12/50 | Loss: 0.7601 | Val R@1: 24.19% | LR: 2.82e-04 | Temp: 14.65
-Epoch  13/50 | Loss: 0.7598 | Val R@1: 24.19% | LR: 2.77e-04 | Temp: 14.68
-Epoch  14/50 | Loss: 0.7457 | Val R@1: 22.58% | LR: 2.71e-04 | Temp: 14.72
-Epoch  15/50 | Loss: 0.6984 | Val R@1: 24.19% | LR: 2.65e-04 | Temp: 14.75
-Epoch  16/50 | Loss: 0.6467 | Val R@1: 25.81% | LR: 2.58e-04 | Temp: 14.78
+Epoch  12/50 | Loss: 0.7595 | Val R@1: 24.19% | LR: 2.82e-04 | Temp: 14.65
+Epoch  13/50 | Loss: 0.7587 | Val R@1: 22.58% | LR: 2.77e-04 | Temp: 14.68
+Epoch  14/50 | Loss: 0.7413 | Val R@1: 22.58% | LR: 2.71e-04 | Temp: 14.72
+Epoch  15/50 | Loss: 0.7074 | Val R@1: 22.58% | LR: 2.65e-04 | Temp: 14.75
+Epoch  16/50 | Loss: 0.6457 | Val R@1: 25.81% | LR: 2.58e-04 | Temp: 14.78
   → Saved best model (R@1: 25.81%)
-Epoch  17/50 | Loss: 0.6688 | Val R@1: 24.19% | LR: 2.50e-04 | Temp: 14.81
-Epoch  18/50 | Loss: 0.6165 | Val R@1: 25.81% | LR: 2.42e-04 | Temp: 14.84
-Epoch  19/50 | Loss: 0.5696 | Val R@1: 25.81% | LR: 2.34e-04 | Temp: 14.87
-Epoch  20/50 | Loss: 0.6461 | Val R@1: 25.81% | LR: 2.25e-04 | Temp: 14.90
-Epoch  21/50 | Loss: 0.5878 | Val R@1: 24.19% | LR: 2.16e-04 | Temp: 14.93
-Epoch  22/50 | Loss: 0.5634 | Val R@1: 24.19% | LR: 2.06e-04 | Temp: 14.95
-Epoch  23/50 | Loss: 0.5635 | Val R@1: 24.19% | LR: 1.96e-04 | Temp: 14.97
-Epoch  24/50 | Loss: 0.5690 | Val R@1: 25.81% | LR: 1.86e-04 | Temp: 14.99
-Epoch  25/50 | Loss: 0.5589 | Val R@1: 25.81% | LR: 1.76e-04 | Temp: 15.01
-Epoch  26/50 | Loss: 0.5390 | Val R@1: 25.81% | LR: 1.66e-04 | Temp: 15.03
+Epoch  17/50 | Loss: 0.6808 | Val R@1: 24.19% | LR: 2.50e-04 | Temp: 14.81
+Epoch  18/50 | Loss: 0.6182 | Val R@1: 25.81% | LR: 2.42e-04 | Temp: 14.84
+Epoch  19/50 | Loss: 0.5710 | Val R@1: 25.81% | LR: 2.34e-04 | Temp: 14.87
+Epoch  20/50 | Loss: 0.6518 | Val R@1: 25.81% | LR: 2.25e-04 | Temp: 14.90
+Epoch  21/50 | Loss: 0.5836 | Val R@1: 24.19% | LR: 2.16e-04 | Temp: 14.92
+Epoch  22/50 | Loss: 0.5575 | Val R@1: 22.58% | LR: 2.06e-04 | Temp: 14.95
+Epoch  23/50 | Loss: 0.5637 | Val R@1: 25.81% | LR: 1.96e-04 | Temp: 14.97
+Epoch  24/50 | Loss: 0.5744 | Val R@1: 25.81% | LR: 1.86e-04 | Temp: 14.99
+Epoch  25/50 | Loss: 0.5592 | Val R@1: 25.81% | LR: 1.76e-04 | Temp: 15.02
+Epoch  26/50 | Loss: 0.5274 | Val R@1: 27.42% | LR: 1.66e-04 | Temp: 15.03
+  → Saved best model (R@1: 27.42%)
+Epoch  27/50 | Loss: 0.5591 | Val R@1: 25.81% | LR: 1.55e-04 | Temp: 15.05
+Epoch  28/50 | Loss: 0.5073 | Val R@1: 24.19% | LR: 1.45e-04 | Temp: 15.06
+Epoch  29/50 | Loss: 0.5578 | Val R@1: 25.81% | LR: 1.34e-04 | Temp: 15.08
+Epoch  30/50 | Loss: 0.4747 | Val R@1: 25.81% | LR: 1.24e-04 | Temp: 15.09
+Epoch  31/50 | Loss: 0.4653 | Val R@1: 25.81% | LR: 1.14e-04 | Temp: 15.11
+Epoch  32/50 | Loss: 0.4802 | Val R@1: 24.19% | LR: 1.04e-04 | Temp: 15.12
+Epoch  33/50 | Loss: 0.5070 | Val R@1: 24.19% | LR: 9.38e-05 | Temp: 15.13
+Epoch  34/50 | Loss: 0.4220 | Val R@1: 24.19% | LR: 8.42e-05 | Temp: 15.15
+Epoch  35/50 | Loss: 0.4850 | Val R@1: 25.81% | LR: 7.50e-05 | Temp: 15.16
+Epoch  36/50 | Loss: 0.4415 | Val R@1: 25.81% | LR: 6.61e-05 | Temp: 15.17
 
-Early stopping at epoch 26
-[Plot] Saved training curves to ../results/training_curves_lstm.png
+Early stopping at epoch 36
+Saved training curves to ../results/training_curves_lstm.png
 
 ============================================================
 TEST EVALUATION
@@ -467,23 +479,18 @@ TEST EVALUATION
 
 Test Results (LSTM):
   R@1:  39.06%
-  R@5:  78.12%
-  R@10: 89.06%
-  MRR:  0.5490
+  R@5:  71.88%
+  R@10: 85.94%
+  MRR:  0.5460
   MedR: 2.0
 
 12.5x improvement over random!
 
-[Saved] Metrics to ../results/metrics_lstm.json
-[Vis] Saved retrieval visualization to ../results/retrieval_results_lstm.png
-[Vis] Saved similarity heatmap to ../results/similarity_heatmap_lstm.png
-[Vis] Saved embedding space to ../results/embedding_space_lstm.png
-[Vis] Need both metrics_lstm.json and metrics_transformer.json to compare
-
-============================================================
-DONE!
-============================================================
-(base) soroushraeisian@Soroushs-MacBook-Air src % 
+Metrics to ../results/metrics_lstm.json
+Saved retrieval visualization to ../results/retrieval_results_lstm.png
+Saved similarity heatmap to ../results/similarity_heatmap_lstm.png
+Saved embedding space to ../results/embedding_space_lstm.png
+Need both metrics_lstm.json and metrics_transformer.json to compare
 ```
 
 ---
