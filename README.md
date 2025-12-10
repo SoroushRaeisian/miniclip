@@ -6,7 +6,7 @@
 
 A PyTorch implementation of CLIP-style contrastive learning for image-text retrieval on personal photo collections. This project implements a simplified version of CLIP model, enabling natural language search over image datasets.
 
-## 🎯 Project Overview
+## Project Overview
 
 MiniCLIP learns a joint embedding space for images and text captions using contrastive learning. Given a text query like "christmas tree" or "white chair", the model retrieves the most relevant images from the dataset.
 
@@ -19,7 +19,7 @@ MiniCLIP learns a joint embedding space for images and text captions using contr
 - Compare BiLSTM baseline vs tiny Transformer text encoders
 - Use InfoNCE contrastive loss with learnable temperature
 
-## 📊 Dataset
+## Dataset
 
 | Property | Value |
 |----------|-------|
