@@ -492,7 +492,93 @@ Saved similarity heatmap to ../results/similarity_heatmap_lstm.png
 Saved embedding space to ../results/embedding_space_lstm.png
 Need both metrics_lstm.json and metrics_transformer.json to compare
 ```
+``` bash
+python main.py --model_type transformer
+============================================================
+MiniCLIP: Text-Image Retrieval
+============================================================
+Device: mps
+Model: transformer
+============================================================
+[Data] Loaded 420 caption entries
+[Tokenizer] Built vocabulary with 194 tokens
+[Split] Train: 294 captions (147 images)
+[Split] Val: 62 captions (31 images)
+[Split] Test: 64 captions (32 images)
 
+============================================================
+BASELINES
+============================================================
+Random baseline (N=32): R@1=3.12%
+BoW baseline: R@1=9.38%
+
+============================================================
+MODEL
+============================================================
+/opt/anaconda3/lib/python3.13/site-packages/torch/nn/modules/transformer.py:392: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+Total parameters: 12,042,817
+Trainable parameters: 9,850,881
+
+============================================================
+TRAINING (TRANSFORMER)
+============================================================
+Epoch   1/50 | Loss: 3.4728 | Val R@1: 3.23% | LR: 6.00e-05 | Temp: 14.28
+  → Saved best model (R@1: 3.23%)
+Epoch   2/50 | Loss: 3.4759 | Val R@1: 1.61% | LR: 1.20e-04 | Temp: 14.27
+Epoch   3/50 | Loss: 3.4170 | Val R@1: 1.61% | LR: 1.80e-04 | Temp: 14.25
+Epoch   4/50 | Loss: 3.3869 | Val R@1: 6.45% | LR: 2.40e-04 | Temp: 14.23
+  → Saved best model (R@1: 6.45%)
+Epoch   5/50 | Loss: 3.3124 | Val R@1: 8.06% | LR: 3.00e-04 | Temp: 14.20
+  → Saved best model (R@1: 8.06%)
+Epoch   6/50 | Loss: 3.1463 | Val R@1: 12.90% | LR: 3.00e-04 | Temp: 14.17
+  → Saved best model (R@1: 12.90%)
+Epoch   7/50 | Loss: 3.0197 | Val R@1: 16.13% | LR: 2.99e-04 | Temp: 14.17
+  → Saved best model (R@1: 16.13%)
+Epoch   8/50 | Loss: 2.9274 | Val R@1: 20.97% | LR: 2.97e-04 | Temp: 14.17
+  → Saved best model (R@1: 20.97%)
+Epoch   9/50 | Loss: 2.7796 | Val R@1: 20.97% | LR: 2.94e-04 | Temp: 14.18
+Epoch  10/50 | Loss: 2.4999 | Val R@1: 20.97% | LR: 2.91e-04 | Temp: 14.20
+Epoch  11/50 | Loss: 2.2476 | Val R@1: 19.35% | LR: 2.87e-04 | Temp: 14.23
+Epoch  12/50 | Loss: 2.0688 | Val R@1: 20.97% | LR: 2.82e-04 | Temp: 14.28
+Epoch  13/50 | Loss: 1.9582 | Val R@1: 20.97% | LR: 2.77e-04 | Temp: 14.32
+Epoch  14/50 | Loss: 1.8058 | Val R@1: 20.97% | LR: 2.71e-04 | Temp: 14.36
+Epoch  15/50 | Loss: 1.7748 | Val R@1: 20.97% | LR: 2.65e-04 | Temp: 14.40
+Epoch  16/50 | Loss: 1.6594 | Val R@1: 20.97% | LR: 2.58e-04 | Temp: 14.44
+Epoch  17/50 | Loss: 1.5010 | Val R@1: 20.97% | LR: 2.50e-04 | Temp: 14.48
+Epoch  18/50 | Loss: 1.5279 | Val R@1: 19.35% | LR: 2.42e-04 | Temp: 14.51
+
+Early stopping at epoch 18
+Saved training curves to ../results/training_curves_transformer.png
+
+============================================================
+TEST EVALUATION
+============================================================
+
+Test Results (TRANSFORMER):
+  R@1:  17.19%
+  R@5:  39.06%
+  R@10: 56.25%
+  MRR:  0.2975
+  MedR: 8.5
+
+5.5x improvement over random!
+
+Metrics to ../results/metrics_transformer.json
+Saved retrieval visualization to ../results/retrieval_results_transformer.png
+Saved similarity heatmap to ../results/similarity_heatmap_transformer.png
+Saved embedding space to ../results/embedding_space_transformer.png
+Saved model comparison to ../results/model_comparison.png
+
+============================================================
+MODEL COMPARISON SUMMARY
+============================================================
+
+LSTM:        R@1=39.1%  R@5=71.9%  MRR=0.546
+Transformer: R@1=17.2%  R@5=39.1%  MRR=0.297
+
+Winner: LSTM (+21.9% R@1)
+```
 ---
 
 ## Pre-trained Model Link
