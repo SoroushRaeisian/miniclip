@@ -1,13 +1,12 @@
 # MiniCLIP: Text-Image Retrieval for Everyday Photos
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
+**Author**: Soroush Raeisian  
+**Course**: EEP 596 - Deep Learning  
+**Date**: 2024
 
 **EEP 596 Deep Learning Final Project**
 
 A PyTorch implementation of CLIP-style contrastive learning for image-text retrieval on personal photo collections. This project implements a simplified version of OpenAI's CLIP model, enabling natural language search over image datasets.
-
-![Retrieval Results](results/retrieval_results_lstm.png)
 
 ## 📋 Table of Contents
 
@@ -141,6 +140,7 @@ Place your images in `data/images/` and your captions in `data/captions.json` wi
   {"file_name": "image_2.jpg", "caption": "mug on white chair"}
 ]
 ```
+![Retrieval Results](results/retrieval_results_lstm.png)
 
 ## 🎮 How to Run
 
@@ -258,25 +258,9 @@ All hyperparameters are centralized in `src/config.py`:
 - **MRR**: Mean Reciprocal Rank
 - **MedR**: Median Rank of correct image
 
-## 🙏 Acknowledgments
-
-- **OpenAI CLIP**: Original CLIP paper and architecture inspiration
-- **PyTorch**: Deep learning framework
-- **torchvision**: Pretrained ResNet models
-- **EEP 596 Course**: Deep Learning course materials and guidance
-
 ### References
 
 1. Radford, A., et al. "Learning Transferable Visual Models From Natural Language Supervision." ICML 2021.
 2. Vaswani, A., et al. "Attention Is All You Need." NeurIPS 2017.
 3. He, K., et al. "Deep Residual Learning for Image Recognition." CVPR 2016.
 
-## 📄 License
-
-This project is for educational purposes as part of EEP 596 Deep Learning course.
-
----
-
-**Author**: Soroush Raeisian  
-**Course**: EEP 596 - Deep Learning  
-**Date**: 2024
