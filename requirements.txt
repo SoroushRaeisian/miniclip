@@ -10,6 +10,7 @@ torchvision>=0.15.0
 numpy>=1.21.0
 Pillow>=9.0.0
 matplotlib>=3.5.0
+scikit-learn
 
 # Optional: For CUDA support, install the appropriate PyTorch version:
 # pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
