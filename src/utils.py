@@ -441,11 +441,11 @@ def visualize_retrieval(model, dataset, device, num_queries=5, top_k=5, save_pat
     plt.tight_layout()
     try:
         plt.savefig(save_path, dpi=150, bbox_inches='tight')
-        print(f"[Vis] Saved retrieval visualization to {save_path}")
+        print(f"Saved retrieval visualization to {save_path}")
     except PermissionError:
         fallback = os.path.basename(save_path)
         plt.savefig(fallback, dpi=150, bbox_inches='tight')
-        print(f"[Vis] Saved retrieval visualization to {fallback}")
+        print(f"Saved retrieval visualization to {fallback}")
     plt.close()
 
 
@@ -530,16 +530,19 @@ def plot_similarity_heatmap(model, dataset, device, num_samples=10, save_path="r
     plt.tight_layout()
     try:
         plt.savefig(save_path, dpi=150, bbox_inches='tight')
-        print(f"[Vis] Saved similarity heatmap to {save_path}")
+        print(f"Saved similarity heatmap to {save_path}")
     except PermissionError:
         fallback = os.path.basename(save_path)
         plt.savefig(fallback, dpi=150, bbox_inches='tight')
-        print(f"[Vis] Saved similarity heatmap to {fallback}")
+        print(f"Saved similarity heatmap to {fallback}")
     plt.close()
 
 
-def plot_embedding_space(model, dataset, device, num_samples=50, save_path="results/embedding_space.png"):
-    """Visualize embedding space using PCA with color-coded matching pairs."""
+def plot_embedding_space(model, dataset, device, num_samples=30, save_path="results/embedding_space.png"):
+    """Visualize embedding space with color-coded matching pairs.
+    
+    Uses t-SNE on CUDA/CPU, PCA on MPS (Apple Silicon) due to t-SNE segfault issues.
+    """
     model.eval()
     
     save_dir = os.path.dirname(save_path)
@@ -581,7 +584,7 @@ def plot_embedding_space(model, dataset, device, num_samples=50, save_path="resu
                 img_ids.append(img_idx)
     
     if not img_embs or not txt_embs:
-        print("[Vis] No embeddings to visualize")
+        print("No embeddings to visualize")
         return
     
     img_embs = torch.cat(img_embs, dim=0).numpy()
@@ -590,10 +593,31 @@ def plot_embedding_space(model, dataset, device, num_samples=50, save_path="resu
     # Combine embeddings
     all_embs = np.vstack([img_embs, txt_embs])
     
-    # Use PCA (more stable than t-SNE on Apple Silicon)
-    from sklearn.decomposition import PCA
-    pca = PCA(n_components=2, random_state=42)
-    embs_2d = pca.fit_transform(all_embs)
+    # Use PCA for MPS (Apple Silicon) - t-SNE has segfault issues
+    # Use t-SNE for CUDA/CPU
+    device_type = str(device).split(':')[0] if isinstance(device, torch.device) else str(device)
+    use_tsne = device_type not in ['mps']
+    
+    if use_tsne:
+        try:
+            from sklearn.manifold import TSNE
+            n_samples = all_embs.shape[0]
+            perplexity = min(30, n_samples - 1)
+            tsne = TSNE(n_components=2, perplexity=perplexity, random_state=42, 
+                        max_iter=1000, learning_rate='auto', init='pca', n_jobs=1, method='exact')
+            embs_2d = tsne.fit_transform(all_embs)
+            method_name = "t-SNE"
+        except Exception as e:
+            print(f"t-SNE failed ({e}), using PCA instead")
+            from sklearn.decomposition import PCA
+            pca = PCA(n_components=2, random_state=42)
+            embs_2d = pca.fit_transform(all_embs)
+            method_name = "PCA"
+    else:
+        from sklearn.decomposition import PCA
+        pca = PCA(n_components=2, random_state=42)
+        embs_2d = pca.fit_transform(all_embs)
+        method_name = "PCA"
     
     n_imgs = len(img_embs)
     img_2d = embs_2d[:n_imgs]
@@ -631,9 +655,9 @@ def plot_embedding_space(model, dataset, device, num_samples=50, save_path="resu
                     color='gray', alpha=0.3, linewidth=1)
             txt_counter[0] += 1
     
-    ax.set_xlabel('PCA Dim 1', fontsize=12)
-    ax.set_ylabel('PCA Dim 2', fontsize=12)
-    ax.set_title(f'MiniCLIP Embedding Space ({model_type})\nMatching pairs cluster together', 
+    ax.set_xlabel(f'{method_name} Dim 1', fontsize=12)
+    ax.set_ylabel(f'{method_name} Dim 2', fontsize=12)
+    ax.set_title(f'MiniCLIP Embedding Space ({model_type}) - {method_name}\nMatching pairs cluster together', 
                  fontsize=14, fontweight='bold')
     
     # Create legend
@@ -654,12 +678,15 @@ def plot_embedding_space(model, dataset, device, num_samples=50, save_path="resu
     plt.tight_layout()
     try:
         plt.savefig(save_path, dpi=150, bbox_inches='tight')
-        print(f"[Vis] Saved embedding space to {save_path}")
+        print(f"Saved embedding space to {save_path}")
     except PermissionError:
         fallback = os.path.basename(save_path)
         plt.savefig(fallback, dpi=150, bbox_inches='tight')
-        print(f"[Vis] Saved embedding space to {fallback}")
-    plt.close()
+        print(f"Saved embedding space to {fallback}")
+    finally:
+        plt.close(fig)
+        import gc
+        gc.collect()
 
 
 def plot_model_comparison(save_dir="results/"):
@@ -670,7 +697,7 @@ def plot_model_comparison(save_dir="results/"):
     trans_path = os.path.join(save_dir, "metrics_transformer.json")
     
     if not os.path.exists(lstm_path) or not os.path.exists(trans_path):
-        print("[Vis] Need both metrics_lstm.json and metrics_transformer.json to compare")
+        print("Need both metrics_lstm.json and metrics_transformer.json to compare")
         return
     
     with open(lstm_path) as f:
@@ -744,11 +771,11 @@ def plot_model_comparison(save_dir="results/"):
     save_path = os.path.join(save_dir, "model_comparison.png")
     try:
         plt.savefig(save_path, dpi=150, bbox_inches='tight')
-        print(f"[Vis] Saved model comparison to {save_path}")
+        print(f"Saved model comparison to {save_path}")
     except PermissionError:
         fallback = "model_comparison.png"
         plt.savefig(fallback, dpi=150, bbox_inches='tight')
-        print(f"[Vis] Saved model comparison to {fallback}")
+        print(f"Saved model comparison to {fallback}")
     plt.close()
     
     # Print summary
@@ -759,9 +786,9 @@ def plot_model_comparison(save_dir="results/"):
     print(f"Transformer: R@1={trans_vals[0]:.1f}%  R@5={trans_vals[1]:.1f}%  MRR={trans_metrics['test_metrics']['MRR']:.3f}")
     
     if lstm_vals[0] > trans_vals[0]:
-        print(f"\n🏆 Winner: LSTM (+{lstm_vals[0]-trans_vals[0]:.1f}% R@1)")
+        print(f"\nWinner: LSTM (+{lstm_vals[0]-trans_vals[0]:.1f}% R@1)")
     else:
-        print(f"\n🏆 Winner: Transformer (+{trans_vals[0]-lstm_vals[0]:.1f}% R@1)")
+        print(f"\nWinner: Transformer (+{trans_vals[0]-lstm_vals[0]:.1f}% R@1)")
 
 
 def plot_training_curves(train_losses, val_r1s, model_type, save_dir="results/"):
@@ -790,10 +817,10 @@ def plot_training_curves(train_losses, val_r1s, model_type, save_dir="results/")
     save_path = os.path.join(save_dir, f'training_curves_{model_type}.png')
     try:
         plt.savefig(save_path, dpi=150)
-        print(f"[Plot] Saved training curves to {save_path}")
+        print(f"Saved training curves to {save_path}")
     except PermissionError:
         # Try saving to current directory instead
         fallback_path = f'training_curves_{model_type}.png'
         plt.savefig(fallback_path, dpi=150)
-        print(f"[Plot] Saved training curves to {fallback_path} (permission issue with {save_dir})")
+        print(f"Saved training curves to {fallback_path} (permission issue with {save_dir})")
     plt.close()
