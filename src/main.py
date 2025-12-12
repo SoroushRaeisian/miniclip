@@ -220,7 +220,7 @@ def main():
     print(f"  MedR: {test_metrics['MedR']:.1f}")
     
     improvement = test_metrics['R@1'] / max(random_baseline['R@1'], 0.01)
-    print(f"\n🎯 {improvement:.1f}x improvement over random!")
+    print(f"\n{improvement:.1f}x improvement over random!")
     
     # Save metrics
     results = {
@@ -234,7 +234,7 @@ def main():
     metrics_path = os.path.join(args.results_dir, f"metrics_{args.model_type}.json")
     with open(metrics_path, "w") as f:
         json.dump(results, f, indent=2)
-    print(f"\n[Saved] Metrics to {metrics_path}")
+    print(f"\nMetrics to {metrics_path}")
     
     # Visualize retrieval
     vis_path = os.path.join(args.results_dir, f"retrieval_results_{args.model_type}.png")
@@ -262,10 +262,7 @@ def main():
         plot_model_comparison(save_dir=args.results_dir)
     except Exception as e:
         print(f"[Warning] Could not create model comparison: {e}")
-    
-    print("\n" + "=" * 60)
-    print("DONE!")
-    print("=" * 60)
+
 
 
 if __name__ == "__main__":
