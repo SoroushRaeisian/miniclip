@@ -16,7 +16,7 @@ from config import Config
 
 
 class ImageEncoder(nn.Module):
-    """CNN-based image encoder using pretrained ResNet18."""
+    """CNN-based image encoder using pretrained R esNet18."""
 
     def __init__(self, embed_dim=Config.EMBED_DIM, use_pretrained=True, dropout=Config.DROPOUT):
         super().__init__()
