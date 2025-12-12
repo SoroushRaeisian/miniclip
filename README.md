@@ -172,7 +172,7 @@ MiniCLIP learns a joint embedding space for images and text captions using contr
 
 #### Step 1: Clone the repository
 ```bash
-git clone https://github.com/yourusername/miniclip.git
+git clone https://github.com/SoroushRaeisian/miniclip.git
 cd miniclip
 ```
 
