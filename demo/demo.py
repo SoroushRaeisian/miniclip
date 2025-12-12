@@ -145,7 +145,7 @@ def load_model(model_type, tokenizer, device, checkpoint_dir):
     
     epoch = checkpoint.get('epoch', '?')
     val_r1 = checkpoint.get('val_r1', 0)
-    print(f"  ✓ Loaded from epoch {epoch}, Val R@1: {val_r1:.2f}%")
+    print(f"   Loaded from epoch {epoch}, Val R@1: {val_r1:.2f}%")
     
     return model
 
@@ -178,7 +178,7 @@ def build_image_index(model, captions_data, image_root, device):
         raise RuntimeError("No images could be indexed!")
     
     img_index = torch.cat(all_img_embs, dim=0)
-    print(f"  ✓ Indexed {img_index.size(0)} images")
+    print(f"   Indexed {img_index.size(0)} images")
     
     return img_index, all_img_paths, all_img_names
 
@@ -238,13 +238,13 @@ def run_automatic(model_type, model, tokenizer, img_index, img_paths, captions_d
     print("-" * 60)
     
     for row, query in enumerate(queries):
-        print(f"\n  🔍 Query: \"{query}\"")
+        print(f"\nQuery: \"{query}\"")
         
         results = search(query, model, tokenizer, img_index, img_paths, device, top_k=top_k)
         all_results.append({'query': query, 'results': results})
         
         for r in results:
-            marker = "✓" if r['rank'] == 1 else " "
+            marker = " " if r['rank'] == 1 else " "
             print(f"     {marker} {r['rank']}. {r['filename']} (score: {r['score']:.3f})")
         
         # Plot query text
@@ -290,7 +290,7 @@ def run_automatic(model_type, model, tokenizer, img_index, img_paths, captions_d
     print("\n" + "=" * 60)
     print("  DEMO COMPLETE!")
     print("=" * 60)
-    print(f"\n  📊 Results saved to:")
+    print(f"\nResults saved to:")
     print(f"     • {output_path}")
     print(f"     • {json_path}")
     print()
@@ -309,9 +309,8 @@ def run_interactive(model_type, model, tokenizer, img_index, img_paths, results_
     
     while True:
         try:
-            query = input("\n  🔍 Enter query: ").strip()
+            query = input("\nEnter query: ").strip()
         except (EOFError, KeyboardInterrupt):
-            print("\n\n  Goodbye!")
             break
         
         if not query:
@@ -319,14 +318,13 @@ def run_interactive(model_type, model, tokenizer, img_index, img_paths, results_
             continue
             
         if query.lower() in ['quit', 'exit', 'q']:
-            print("\n  Goodbye!")
             break
         
         results = search(query, model, tokenizer, img_index, img_paths, device, top_k=5)
         
-        print(f"\n  📸 Top {len(results)} results:")
+        print(f"\nTop {len(results)} results:")
         for r in results:
-            marker = "✓" if r['rank'] == 1 else " "
+            marker = " " if r['rank'] == 1 else " "
             print(f"     {marker} {r['rank']}. {r['filename']} (score: {r['score']:.3f})")
         
         query_count += 1
@@ -354,7 +352,7 @@ def run_interactive(model_type, model, tokenizer, img_index, img_paths, results_
         safe_query = "".join(c if c.isalnum() else "_" for c in query)[:30]
         output_path = os.path.join(results_dir, f"query_{query_count}_{safe_query}_{model_type}.png")
         plt.savefig(output_path, dpi=150, bbox_inches='tight')
-        print(f"\n     💾 Saved: {output_path}")
+        print(f"\nSaved: {output_path}")
         
         plt.show()
 
@@ -380,16 +378,16 @@ def main():
     
     # Load data
     print("\n" + "-" * 40)
-    print("  LOADING...")
+    print("LOADING...")
     print("-" * 40)
     
     if not os.path.exists(captions_json):
-        print(f"\n  ❌ Error: Captions file not found: {captions_json}")
+        print(f"\nError: Captions file not found: {captions_json}")
         return
     
     with open(captions_json, "r") as f:
         data = json.load(f)
-    print(f"  ✓ Loaded {len(data)} captions")
+    print(f"Loaded {len(data)} captions")
     
     # Build tokenizer
     tokenizer = SimpleTokenizer(Config.MAX_VOCAB_SIZE)
@@ -399,7 +397,7 @@ def main():
     try:
         model = load_model(model_type, tokenizer, device, checkpoint_dir)
     except FileNotFoundError as e:
-        print(f"\n  ❌ Error: {e}")
+        print(f"\nError: {e}")
         return
     
     # Build image index
