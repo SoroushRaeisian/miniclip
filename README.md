@@ -199,7 +199,7 @@ pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 pip install numpy Pillow matplotlib scikit-learn
 ```
 
-For Apple Silicon (M1/M2/M3):
+For Apple Silicon:
 ```bash
 pip install torch torchvision
 pip install numpy Pillow matplotlib scikit-learn
